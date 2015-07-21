@@ -446,7 +446,6 @@ programming resources.
   complicated, it is preferable to make a class method instead which serves the
   same purpose of the named scope and returns an `ActiveRecord::Relation`
   object. Arguably you can define even simpler scopes like this.
-
 <!-- <sup>[[link](#named-scope-class)]</sup> -->
 
   ```Ruby
@@ -500,13 +499,13 @@ programming resources.
     the `id` of the record as a String.  It could be overridden to include another
     human-readable attribute.
 
-      ```Ruby
-      class Person
-        def to_param
-          "#{id} #{name}".parameterize
-        end
+    ```Ruby
+    class Person
+      def to_param
+        "#{id} #{name}".parameterize
       end
-      ```
+    end
+    ```
 
   In order to convert this to a URL-friendly value, `parameterize` should be
   called on the string. The `id` of the object needs to be at the beginning so
@@ -515,12 +514,12 @@ programming resources.
   * Use the `friendly_id` gem. It allows creation of human-readable URLs by
     using some descriptive attribute of the model instead of its `id`.
 
-      ```Ruby
-      class Person
-        extend FriendlyId
-        friendly_id :name, use: :slugged
-      end
-      ```
+    ```Ruby
+    class Person
+      extend FriendlyId
+      friendly_id :name, use: :slugged
+    end
+    ```
 
   Check the [gem documentation](https://github.com/norman/friendly_id) for more
   information about its usage.
@@ -816,10 +815,10 @@ when you need to retrieve a single record by some attributes.
     these directories must be described in the `application.rb` file in order
     to be loaded.
 
-      ```Ruby
-      # config/application.rb
-      config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
-      ```
+    ```Ruby
+    # config/application.rb
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+    ```
 
 * <a name="shared-localization"></a>
   Place the shared localization options, such as date or currency formats, in
